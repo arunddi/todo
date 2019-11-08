@@ -14,11 +14,17 @@ const useStyles = makeStyles((theme) => ({
 
 const TodoList = (props) => {
 
-    const { todos, onDelete } = props;
+    const { todos, onDelete, loading} = props;
     const classes = useStyles();
+
+    if(loading) {
+        return <h1>Loading...</h1>
+    }
     
     return (
         <div>
+
+            
             <List className={classes.listRoot}>
             { 
                 todos.map(({ id, name, completed }) => {
